@@ -1,0 +1,35 @@
+==
+<!doctype html>
+<html lang="{{ this.theme.site_locale }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ this.page.title }} | {{ this.theme.site_title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% partial 'site/styles' %}
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="68" id="body">
+    {% partial 'site/nav-demo' %}
+    {% page %}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="{{[
+            'assets/js/bootstrap.bundle.min.js',
+            '@framework',
+            '@framework.extras',
+            'assets/js/site.js',
+        ] | theme }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    
+    <script>
+        $('.dropdown-item, .top-navbar .nav-link, .navbar-brand, .smoothscroll').click(function() {
+            var sectionTo = $(this).attr('href');
+            $('html, body').animate({
+              scrollTop: $(sectionTo).offset().top - 65
+            }, 700, "easeInOutExpo");
+        });
+    </script>
+    {% scripts %}
+</body>
+</html>
